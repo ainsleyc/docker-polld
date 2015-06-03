@@ -4,13 +4,10 @@ Dockerfile for polld daemon. Pulls a github repo (limited to optional subfolder)
 
 Environment variables:
 
-*GITHUB_REPO (required)
-
-*GITHUB_SSH_KEY (required)
-
-*GIT_PATH (optional, defaults to "/")
-
-*GIT_BRANCH (optional, defaults to "master")
+-GITHUB_REPO (required)
+-GITHUB_SSH_KEY (required)
+-GIT_PATH (optional, defaults to "/")
+-GIT_BRANCH (optional, defaults to "master")
 
 You can then run via
 
