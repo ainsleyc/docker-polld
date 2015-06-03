@@ -12,5 +12,5 @@ Environment variables:
 You can then run via
 
 ```
-docker --name polld-task -e GITHUB_REPO="git@github.com:myorg/myrepo.git" -e GITHUB_SSH_KEY="`cat path_to_my_github_key`" ainsleyc/polld
+docker run --name polld-task -e GITHUB_REPO="git@github.com:myorg/myrepo.git" -e GITHUB_SSH_KEY="`cat path_to_my_github_key`" ainsleyc/polld
 ```
