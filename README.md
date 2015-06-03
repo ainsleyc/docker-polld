@@ -1,6 +1,6 @@
 # docker-polld
 
-Dockerfile for [polld](https://github.com/ainsleyc/polld) daemon. Pulls a github repo (limited to optional subfolder) containing the taskfile, installs npm dependencies and runs the task.
+Docker for [polld](https://github.com/ainsleyc/polld) daemon. Pulls a github repo (limited to optional subfolder) containing the taskfile, installs npm dependencies and runs the task.
 
 Environment variables:
 
