@@ -9,9 +9,9 @@ Environment variables:
 - GIT_PATH (optional, defaults to "/")
 - GIT_BRANCH (optional, defaults to "master")
 - TASK_PATH (optional, defaults to "/task.js")
+- TASK_INTERVAL (optional, defaults to 10000) 
 - STATSD_HOST (optional, defaults to "localhost")
 - STATSD_PORT (optional, defaults to 8125)
-- STATSD_INTERVAL (optional, defaults to 10000) 
 
 You can then run via:
 ```
