@@ -8,7 +8,6 @@ Environment variables:
 - GITHUB_SSH_KEY (required)
 - GIT_PATH (optional, defaults to "/")
 - GIT_BRANCH (optional, defaults to "master")
-
 - TASK_PATH (optional, defaults to "/task.js")
 - STATSD_HOST (optional, defaults to "localhost")
 - STATSD_PORT (optional, defaults to 8125)
