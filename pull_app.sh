@@ -20,3 +20,30 @@ fi
 npm install
 
 chown -R app /home/app
+
+cmd="polld"
+
+if [ -z "$STATS_HOST" ]
+  then
+    cmd="$cmd -h $STATSD_HOST"
+fi
+
+if [ -z "$STATS_PORT" ]
+  then
+    cmd="$cmd -p $STATSD_PORT"
+fi
+
+if [ -z "$TASK_INTERVAL" ]
+  then
+    cmd="$cmd -i $TASK_INTERVAL"
+fi
+
+if [ -z "$TASK_PATH" ]
+  then
+    cmd="$cmd /home/app/$TASK_PATH"
+  else
+    cmd="$cmd /home/app/task.js"
+fi
+
+echo $cmd
+eval $cmd
