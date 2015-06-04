@@ -4,7 +4,8 @@ echo "$GITHUB_SSH_KEY" > ~/.ssh/github_key && chmod 600 ~/.ssh/github_key
 
 GIT_BRANCH=${GIT_BRANCH:-"master"}
 
-cd /home/app
+mkdir /home/polld/task
+cd /home/polld/task
 
 if [ -z "$GIT_PATH" ]
   then
@@ -14,36 +15,31 @@ if [ -z "$GIT_PATH" ]
     git config core.sparseCheckout true
     echo "$GIT_PATH" >> .git/info/sparse-checkout
     git checkout $GIT_BRANCH
-    mv /home/app/$GIT_PATH/* /home/app
+    mv /home/polld/task/$GIT_PATH/* /home/polld/task
 fi
 
 npm install
 
-chown -R app /home/app
-
 cmd="polld"
 
-if [ -z "$STATS_HOST" ]
-  then
-    cmd="$cmd -h $STATSD_HOST"
+if [ -n "$STATSD_HOST" ]; then
+  cmd="$cmd -h $STATSD_HOST"
 fi
 
-if [ -z "$STATS_PORT" ]
-  then
-    cmd="$cmd -p $STATSD_PORT"
+if [ -n "$STATSD_PORT" ]; then
+  cmd="$cmd -p $STATSD_PORT"
 fi
 
-if [ -z "$TASK_INTERVAL" ]
-  then
-    cmd="$cmd -i $TASK_INTERVAL"
+if [ -n "$TASK_INTERVAL" ]; then
+  cmd="$cmd -i $TASK_INTERVAL"
 fi
 
-if [ -z "$TASK_PATH" ]
+if [ -n "$TASK_FILE" ];
   then
-    cmd="$cmd /home/app/$TASK_PATH"
+    cmd="$cmd /home/polld/task/$TASK_PATH"
   else
-    cmd="$cmd /home/app/task.js"
+    cmd="$cmd /home/polld/task/task.js"
 fi
 
 echo $cmd
-eval $cmd
+exec $cmd
