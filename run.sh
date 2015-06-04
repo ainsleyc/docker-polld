@@ -36,7 +36,7 @@ fi
 
 if [ -n "$TASK_FILE" ];
   then
-    cmd="$cmd /home/polld/task/$TASK_PATH"
+    cmd="$cmd /home/polld/task/$TASK_FILE"
   else
     cmd="$cmd /home/polld/task/task.js"
 fi
